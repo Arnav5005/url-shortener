@@ -1,6 +1,6 @@
 import express from "express";
 import validateUrl from "../middleware/validateUrl.js";
-import { createShortUrl } from "../controllers/url.controller.js";
+import {createShortUrl, redirectUrl} from "../controllers/url.controller.js";
 
 const router = express.Router();
 
@@ -13,5 +13,6 @@ const router = express.Router();
 //     });
 // });
 router.post("/", validateUrl, createShortUrl);
+router.get("/:shortCode", redirectUrl);
 
 export default router;
